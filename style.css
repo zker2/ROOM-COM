@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Chrome, Edge, Safari */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #ffffff;
+    scrollbar-width: none;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+    position:absolute;
+
+    left:20px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:1000;
+
+    cursor:pointer;
+}
+
+.logo img{
+
+    width:42px;
+    height:42px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    display:block;
+
+    transition:0.3s ease;
+
+    box-shadow:
+    0 0 15px rgba(0,255,200,0.18);
+}
+
+.logo img:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 25px rgba(0,255,200,0.35);
+}
+
+/* =========================
+   LOGO POPUP
+========================= */
+
+.logo-overlay{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.75);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.35s ease;
+
+    z-index:2000;
+}
+
+.logo-overlay.active{
+
+    opacity:1;
+    pointer-events:auto;
+}
+
+.logo-popup-img{
+
+    width:min(80vw,420px);
+
+    border-radius:28px;
+
+    box-shadow:
+    0 0 50px rgba(0,255,200,0.25);
+
+    transform:scale(0.7);
+
+    transition:0.35s ease;
+}
+
+.logo-overlay.active .logo-popup-img{
+
+    transform:scale(1);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* กลาง */
+    padding: 15px;
+    box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.356);
+}
+
+/* เมนู */
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: 0.3s;
+    margin: 0 15px;
+}
+
+.navbar a:hover {
+    color: black;
+    font-weight: 600;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+/* container */
+.gpu-card {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+/* 🔥 ตัวสำคัญ */
+.gpu-card iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 100vw;
+    height: 56.25vw;
+
+    min-height: 100vh;
+    min-width: 177.77vh;
+
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* วิดีโอ */
+.gpu-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 🔥 สำคัญ */
+    display: block;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease; /* ทำให้จางนุ่มๆ */
+}
+
+/* SECTION */
+.timeline {
+    max-width: 900px;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* ITEM */
+.timeline-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* สลับซ้ายขวา */
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* รูป */
+.timeline-item img {
+    width: 300px;
+    border-radius: 15px;
+}
+
+/* เนื้อหา */
+.content {
+    max-width: 400px;
+}
+
+.content h3 {
+    margin-bottom: 10px;
+}
+
+.content p {
+    color: #666;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #111;
+    color: #ccc;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    width: 100%;        /* เต็มจอ */
+    margin: 0;          /* ❌ ไม่จัดกลาง */
+    padding: 0 40px;    /* เว้นขอบนิดนึง */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-left h3 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.footer-center a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #aaa;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-center a:hover {
+    color: white;
+}
+
+.footer-right {
+    font-size: 13px;
+    color: #777;
+}
+
+/* ===== TABLET (768px ลงมา) ===== */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+.navbar {
+    padding: 10px;
+}
+
+.navbar a {
+    margin: 0 8px;
+    font-size: 13px;
+}
+
+  /* HERO */
+.hero {
+    height: 100vh;
+}
+
+  /* TIMELINE */
+.timeline {
+    padding: 0 20px;
+}
+
+.timeline-item {
+    flex-direction: column; /* 🔥 จากซ้ายขวา → บนล่าง */
+    text-align: center;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: column; /* กันสลับ */
+}
+
+.timeline-item img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.content {
+    max-width: 100%;
+}
+}
+
+
+/* ===== MOBILE (480px ลงมา) ===== */
+@media (max-width: 480px) {
+
+/* NAVBAR */
+.navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.navbar a {
+    font-size: 12px;
+    margin: 5px;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+}
+
+/* VIDEO */
+.gpu-card video {
+    object-position: center;
+}
+
+/* TIMELINE */
+.timeline {
+    gap: 30px;
+    margin: 50px auto;
+}
+
+.timeline-item img {
+    border-radius: 10px;
+}
+
+.content h3 {
+    font-size: 18px;
+}
+
+.content p {
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+}
+
+/* ===== SMALL MOBILE (360px ลงมา) ===== */
+@media (max-width: 360px) {
+
+.navbar a {
+    font-size: 11px;
+}
+
+.hero {
+    height: 100vh;
+}
+
+.content h3 {
+    font-size: 16px;
+}
+
+.content p {
+    font-size: 13px;
+}
+}
